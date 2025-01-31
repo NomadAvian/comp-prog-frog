@@ -23,11 +23,6 @@ public:
         return parent[v] = find_set(parent[v]);
     }
 
-    void make_set(int v) {
-        parent[v] = v;
-        treeSize[v] = 1;
-    }
-
     void union_set(int u, int v) {
         int a = find_set(u);
         int b = find_set(v);

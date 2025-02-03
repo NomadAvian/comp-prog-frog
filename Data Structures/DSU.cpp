@@ -13,14 +13,11 @@ public:
     DSU(int n) {
         parent.resize(n+1);
         treeSize.resize(n+1, 1);
-        for(int i = 0; i <= n; i++)
-            parent[i] = i;
+        iota(parent.begin(), parent.end(), 0);
     }
 
     int find_set(int v) {
-        if(parent[v] == v) return v;
-
-        return parent[v] = find_set(parent[v]);
+        return (parent[v] == v) ? v : parent[v] = find_set(parent[v]);
     }
 
     void union_set(int u, int v) {

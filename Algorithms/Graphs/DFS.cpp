@@ -5,10 +5,10 @@ using namespace std;
     The following implementation of DFS checks if two nodes a and b are connected
 */
 
-const int MAX_SIZE = 1e5; 
+const int MAX = 1e5; 
 
-vector<int> adj[MAX_SIZE+1]; // Adjacency list (1-based index)
-vector<bool> visited(MAX_SIZE, false);
+vector<int> adj[MAX+1]; // Adjacency list (1-based index)
+vector<bool> visited(MAX, false);
 
 void DFS(int u) {
 

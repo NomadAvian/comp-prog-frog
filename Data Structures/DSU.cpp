@@ -7,6 +7,7 @@ private:
 
     vector<int> parent;
     vector<int> treeSize;
+    int components;
 
 public:
 
@@ -14,6 +15,7 @@ public:
         parent.resize(n+1);
         treeSize.resize(n+1, 1);
         iota(parent.begin(), parent.end(), 0);
+        components = n;
     }
 
     int find_set(int v) {
@@ -29,6 +31,8 @@ public:
                 swap(a, b);
             parent[b] = a;
             treeSize[a] += treeSize[b];
+
+            components--;
         }
     }
 

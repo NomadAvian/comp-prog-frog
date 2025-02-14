@@ -3,6 +3,7 @@ using namespace std;
 
 /*
     The following implementation of DFS checks if two nodes a and b are connected
+    time complexity : O(v + e)
 */
 
 const int MAX = 1e5; 

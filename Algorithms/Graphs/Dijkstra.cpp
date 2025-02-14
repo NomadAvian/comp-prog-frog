@@ -5,7 +5,8 @@ const int MAX = 1e5;
 
 /*
     The following implementation of Dijkstra finds the minimum distance from one node, u
-    in a weighted graph to all other nodes in the graph
+    in a weighted graph to all other nodes in the graph given there are no negative edges
+    time complexity : O((v + e)log v)
 */
 
 priority_queue<pair<long long, int>> Q;

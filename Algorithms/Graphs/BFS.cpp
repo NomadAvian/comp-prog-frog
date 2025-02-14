@@ -4,6 +4,7 @@ using namespace std;
 /*
     The following implementation of BFS calculates the minimum distance from node 'a' to node 'b' 
     in an adjacency list representation of a graph.
+    time complexity : O(v + e)
 */
 
 int BFS(vector<int>* adj, int n, int a, int b) {

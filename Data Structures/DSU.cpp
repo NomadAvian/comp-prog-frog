@@ -2,65 +2,27 @@
 using namespace std;
 
 
-class DSU {
-private:
-
-    vector<int> parent;
-    vector<int> treeSize;
-    int components;
-
-public:
-
-    DSU(int n) {
-        parent.resize(n+1);
-        treeSize.resize(n+1, 1);
-        iota(parent.begin(), parent.end(), 0);
-        components = n;
-    }
-
-    int find_set(int v) {
-        return (parent[v] == v) ? v : parent[v] = find_set(parent[v]);
-    }
-
-    void union_set(int u, int v) {
-        int a = find_set(u);
-        int b = find_set(v);
-
-        if(a != b) {
-            if(treeSize[a] < treeSize[b])
-                swap(a, b);
-            parent[b] = a;
-            treeSize[a] += treeSize[b];
-
-            components--;
-        }
-    }
-
-    bool connected(int u, int v) {
-        return find_set(u) == find_set(v);
-    }
+struct dsu {
+    vector<int> p;
+    int component;
+    dsu(int n) : p(n,-1), component(n) {}
+    void add() { p.push_back(-1), component++; }
+    int size(int v) { return -p[find(v)]; }
+    int find(int v) { return (p[v]<0) ? v : p[v]=find(p[v]); }
+    bool join(int u, int v) {
+        u = find(u), v = find(v);
+        if(u == v) return false;
+        if(p[u]>p[v]) swap(u,v);
+        p[u]+=p[v],p[v]=u,--component;
+        return true;
+    } 
 };
 
 
 // driver code
 int main() {
     
-    int n = 10;  // Number of elements
-    DSU dsu(n);
-
-    // Example operations:
-    dsu.union_set(1, 2);  // Union of 1 and 2
-    dsu.union_set(2, 3);  // Union of 2 and 3
-    dsu.union_set(4, 5);  // Union of 4 and 5
-    dsu.union_set(6, 7);  // Union of 6 and 7
-
-    // Check if two nodes are connected
-    cout << (dsu.connected(1, 3) ? "Yes" : "No") << "\n";  // Should print "Yes"
-    cout << (dsu.connected(1, 4) ? "Yes" : "No") << "\n";  // Should print "No"
-
-    // Union of different sets
-    dsu.union_set(3, 4);  // Union of sets containing 3 and 4
-    cout << (dsu.connected(1, 5) ? "Yes" : "No") << "\n";  // Should print "Yes"
+    
 
     return 0;
 }

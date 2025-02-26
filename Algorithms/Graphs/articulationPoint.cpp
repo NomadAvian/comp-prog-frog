@@ -3,6 +3,7 @@ using namespace std;
 
 /*
     Articulation Point : Tarjan's Algorithm
+    Find out if the deleting of nodes create a new component in the graph
     time complexity : O(v + e)
 */
 

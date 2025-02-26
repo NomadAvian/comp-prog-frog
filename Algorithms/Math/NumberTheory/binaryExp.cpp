@@ -18,11 +18,3 @@ long long binexp(long long a, long long b, long long m) {
     }
     return res;
 }
-
-// driver code
-int main() {
-
-    cout << binexp(123, 100, MOD) << '\n';
-
-    return 0;
-}

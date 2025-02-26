@@ -25,12 +25,3 @@ void topological_sort(int nodes) {
     }
     reverse(seq.begin(),seq.end());
 }
-
-
-// driver code
-int main() {
-    
-
-
-    return 0;
-}

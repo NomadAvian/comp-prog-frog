@@ -28,13 +28,3 @@ map<long long,int> factorize(long long n) {
     if(n>1) res[n]++;
     return res;
 }
-
-// driver code
-int main() {
-
-    sieve(100);
-
-    for(auto p : prime) cout << p << " ";
-  
-    return 0;
-}

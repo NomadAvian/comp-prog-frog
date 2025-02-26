@@ -36,15 +36,3 @@ long long nCr_compact(int n, int r) {
         --n,--r;
     }
 }
-
-// driver code
-int main() {
-
-    precompute();
-
-    cout << "6C4 = " << nCr(6,4) << '\n';
-    cout << "12C4 = " << nCr(12,4) << '\n';
-    cout << "122C54 = " << nCr(122,54) << '\n';
-
-    return 0;
-}

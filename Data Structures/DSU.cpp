@@ -17,12 +17,3 @@ struct dsu {
         return true;
     } 
 };
-
-
-// driver code
-int main() {
-    
-    
-
-    return 0;
-}

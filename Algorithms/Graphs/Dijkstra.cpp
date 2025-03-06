@@ -35,30 +35,3 @@ void dijkstra(int source) {
         }
     }
 }
-
-// driver code
-int main() {
-    int n, m, source;
-    cin >> n >> m >> source;  // Number of nodes, edges, and source node
-
-    for (int i = 0; i < m; i++) {
-        int u, v;
-        long long w;
-        cin >> u >> v >> w; // Read edge (u, v) with weight w
-        adj[u].push_back({v, w});
-        adj[v].push_back({u, w});
-    }
-
-    dijkstra(source);
-
-    // Print shortest distances
-    for (int i = 1; i <= n; i++) {
-        if (dist[i] == LLONG_MAX)
-            cout << "INF ";
-        else
-            cout << dist[i] << " ";
-    }
-    cout << "\n";
-
-    return 0;
-}

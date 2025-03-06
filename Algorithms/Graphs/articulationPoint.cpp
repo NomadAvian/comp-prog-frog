@@ -43,39 +43,3 @@ void AP(int sz) {
             ap[u] = artPointDFS(u, u) > 1;
     }
 }
-
-// driver code
-int main() {
-
-    // construct the graph
-    int sz = 8;
-    adj[1] = {2,3};
-    adj[2] = {1,3,4};
-    adj[3] = {1,2};
-    adj[4] = {2,6,5};
-    adj[5] = {4};
-    adj[6] = {4,7,8};
-    adj[7] = {6};
-    adj[8] = {6};
-
-    AP(sz);
-
-    for(int i = 1; i <= sz; i++) {
-        if(ap[i]) cout << i << " ";
-    }
-
-    return 0;
-}
-
-/*
-    1
-   / \
-  2---3
-  |  
-  4
- / \
-5   6---8
-     \
-      7
-
-*/

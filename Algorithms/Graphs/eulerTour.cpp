@@ -14,7 +14,3 @@ void euler_tour(int u, int parent) {
     }
     stop[u] = timer;
 }
-
-int main() {
-    
-}

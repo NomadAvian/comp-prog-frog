@@ -27,28 +27,3 @@ int BFS(vector<int>* adj, int n, int a, int b) {
 
     return (distance[b] == INT32_MAX) ? -1 : distance[b];
 }
-
-// driver code
-int main() {
-
-    int n = 6; // Number of nodes
-    vector<int> adj[n + 1]; // Adjacency list (1-based index)
-
-    // Constructing the graph
-    adj[1] = {2, 3};
-    adj[2] = {1, 4, 5};
-    adj[3] = {1, 5};
-    adj[4] = {2, 6};
-    adj[5] = {2, 3, 6};
-    adj[6] = {4, 5};
-
-    int a = 1, b = 6;
-    int min_distance = BFS(adj, n, a, b);
-
-    if (min_distance == -1)
-        cout << "No path exists from " << a << " to " << b << endl;
-    else
-        cout << "Minimum distance from " << a << " to " << b << " is " << min_distance << endl;
-
-    return 0;
-}

@@ -1,11 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// time complexity : O(n + log(MOD))
-// space complexity : O(n)
-const long long MOD = 1e9+7;
-const int maxn = 1e5;
-long long fact[maxn+1];
+/*
+    https://cses.fi/problemset/task/1716
+*/
+
+const int MOD = 1e9 + 7;
+const int maxn = 2e6+5;
+
+long long fact[maxn+2];
 void precompute() {
     fact[0] = fact[1] = 1;
     for(int i = 2; i <= maxn; i++) fact[i] = (fact[i-1]*i) % MOD;
@@ -23,16 +26,15 @@ long long nCr(int n, int r) { // nCr = (n!) / {(n-r)! * r!}
     return (num * binexp(denom, MOD-2, MOD)) % MOD;
 }
 
+int32_t main() {
 
-// time complexity : O(r * log(MIN(N,D)))
-// space complexity : O(1)
-long long nCr_compact(int n, int r) {
-    long long N = 1, D = 1;
-    r = min(r,n-r);
-    while(r > 0) {
-        N *= n, D *= r;
-        long long g = __gcd(N,D);
-        N/=g,D/=g;
-        --n,--r;
-    }
+    precompute();
+
+    int n, m;
+    cin >> n >> m;
+
+    // stars and bars
+    cout << nCr(n + m - 1, m);
+    
+    return 0;
 }

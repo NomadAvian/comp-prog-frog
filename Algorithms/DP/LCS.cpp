@@ -16,14 +16,3 @@ int LCS(string& a, string& b) {
 
     return dp[sza][szb];
 }
-
-// driver code
-int main() {
-
-  string a = "CompProgFrog";
-  string b = "FrogFrogFrog";
-
-  cout << LCS(a, b) << endl;
-  
-  return 0;
-}

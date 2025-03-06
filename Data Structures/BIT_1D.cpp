@@ -23,14 +23,3 @@ struct BIT {
     int64_t sum(int l, int r) { return sum(r)-(l>0 ? sum(l-1):0); }
     void add(int idx, int64_t delta) { for(; idx<n; idx|=idx+1) bit[idx]+=delta; }
 };
-
-
-// driver code
-int main() {
-    vector<int64_t> arr = {2,3,5,6,1,3,4,2};
-    BIT fenwick(arr);
-
-    cout << fenwick.sum(2,4) << '\n';
-    fenwick.add(4,12);
-    cout << fenwick.sum(2,4) << '\n';
-}

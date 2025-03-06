@@ -18,18 +18,3 @@ int knapsack(vector<int>& weight, vector<int>& value, int cap, int n) {
 
     return memo[cap];
 }
-
-// driver code
-int main() {
-    
-    int n = 4, cap = 10;
-    vector<int> w(n), v(n);
-
-    w[0] = 4, w[1] = 8, w[2] = 5, w[3] = 3;
-    v[0] = 5, v[1] = 12, v[2] = 8, v[3] = 1;
-
-    // result = 13
-    cout << knapsack(w, v, cap, n) << "\n";
-
-    return 0;
-}

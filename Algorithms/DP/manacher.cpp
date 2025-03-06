@@ -3,7 +3,8 @@ using namespace std;
 
 /*
 
-    Given a string, find the maximum length palindrome in tht string
+    Find the maximum length palindrome in a string
+    Time complexity: O(n)
 
 */
 
@@ -38,12 +39,4 @@ int manacher(string& s) {
     }
 
     return max_len;
-}
-
-int main() {
-
-    string s = "abaxabaxxyyxxzxxyyxxabc";
-    cout << manacher(s) << "\n";
-
-    return 0;
 }

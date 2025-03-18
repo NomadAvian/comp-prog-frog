@@ -2,11 +2,15 @@
 using namespace std;
 
 /*
-    https://codeforces.com/contest/1462/problem/E2
+    https://atcoder.jp/contests/abc171/tasks/abc171_f
+
+    the exact letters in the given string are irrelevant
+    calculate number of string where there are
+    i = 0,1,2,...,k repetitions of the letters in the given string
 */
 
 const int64_t MOD = 1e9+7;
-const int maxn = 2e5+7;
+const int maxn = 2e6+7;
 int64_t fact[maxn+1];
 void precompute() {
     fact[0] = fact[1] = 1;
@@ -20,42 +24,34 @@ int64_t binexp(int64_t a, int64_t b, int64_t m) {
     }
     return res;
 }
+
+// ncr
 int64_t nCr(int n, int r) { // nCr = (n!) / {(n-r)! * r!}
-    if(r > n) return 0;
     int64_t num = fact[n], denom = (fact[n-r]*fact[r])%MOD;
     return (num * binexp(denom, MOD-2, MOD)) % MOD;
 }
-
 
 int32_t main() {
 
     precompute();
 
-    int tc;
-    cin >> tc;
+    int k;
+    string s;
 
-    while(tc--) {
-        
-        int n, m, k;
-        cin >> n >> m >> k;
-        
-        vector<int> a(n);
-        for(auto& x : a) cin >> x;
+    cin >> k >> s;
 
-        sort(a.begin(),a.end());
+    int n = s.size();
 
-        int64_t res = 0;
-        
-        for(int i = 0; i < n; ++i) {
+    int64_t res = 0;
 
-            int ub = upper_bound(a.begin(),a.end(),a[i]+k) - a.begin() - 1;
-
-            res += nCr(ub - i, m - 1);
-            res %= MOD;
-        }
-
-        cout << res << '\n';
+    // calculate number of string where there are
+    // i = 0,1,2,...,k repetitions of the letters in the given string
+    for(int i = n; i <= k+n; ++i) {
+        res += (nCr(n + k, i) * binexp(25, n + k - i, MOD));
+        res %= MOD;
     }
+
+    cout << res;
 
     return 0;
 }

@@ -2,11 +2,15 @@
 using namespace std;
 
 /*
-    https://cses.fi/problemset/task/2064
+    https://cses.fi/problemset/task/2187
+
+    kth convolution of Catalan numbers Ck[n], 
+    where k = unpaired '(' in the given prefix and
+          n = total pairs of ( and )
 */
 
 const int64_t MOD = 1e9+7;
-const int maxn = 2e6+7;
+const int maxn = 2e6;
 int64_t fact[maxn+1];
 void precompute() {
     fact[0] = fact[1] = 1;
@@ -21,6 +25,7 @@ int64_t binexp(int64_t a, int64_t b, int64_t m) {
     return res;
 }
 int64_t nCr(int n, int r) { // nCr = (n!) / {(n-r)! * r!}
+    if(r > n) return 0;
     int64_t num = fact[n], denom = (fact[n-r]*fact[r])%MOD;
     return (num * binexp(denom, MOD-2, MOD)) % MOD;
 }
@@ -30,19 +35,33 @@ int32_t main() {
     precompute();
 
     int n;
-    cin >> n;
+    string s;
 
-    if(n % 2 == 1) {
+    cin >> n >> s;
+
+    bool invalid = false;
+
+    int x = 0, y = 0;
+    for(char c : s) {
+        if(c == '(') x++;
+        else y++;
+
+        if(y > x) invalid = true;
+    }
+
+    if(invalid or (x > n/2) or (n%2)) {
         cout << 0;
         return 0;
     }
 
-    // calculate nth catalan number
+    n/=2;
+    n -= x;
+    int k = (x-y);
 
-    n /= 2;
-
-    int64_t res = nCr(2*n, n) - nCr(2*n, n - 1);
-    if(res < 0) res += MOD;
+    // kth convolution of Catalan numbers
+    // C^{k}_{i} = {k+1/n+k+1} * (2n+k)C(n)
+    int64_t res = (nCr(2*n + k, n) * (k+1)) % MOD;
+    res = (res * binexp(n+k+1,MOD-2,MOD)) % MOD;
 
     cout << res;
 

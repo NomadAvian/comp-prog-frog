@@ -16,10 +16,10 @@ void sieve(int limit) {
         if(mark[p]) prime.push_back(p);
 }
 
-map<long long,int> factorize(long long n) {
-    map<long long,int> res;
+map<int64_t,int> factorize(int64_t n) {
+    map<int64_t,int> res;
     for(int p : prime) {
-        if((long long)p*p > n) break;
+        if((int64_t)p*p > n) break;
 
         int exp = 0;
         while(n%p==0) n/=p,exp++;

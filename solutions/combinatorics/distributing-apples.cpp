@@ -3,6 +3,8 @@ using namespace std;
 
 /*
     https://cses.fi/problemset/task/1716
+
+    stars and bars technique
 */
 
 const int MOD = 1e9 + 7;
@@ -33,7 +35,6 @@ int32_t main() {
     int n, m;
     cin >> n >> m;
 
-    // stars and bars
     cout << nCr(n + m - 1, m);
     
     return 0;

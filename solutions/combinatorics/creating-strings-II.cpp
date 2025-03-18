@@ -3,6 +3,8 @@ using namespace std;
 
 /*
     https://cses.fi/problemset/task/1715
+
+    simple nPr with repeating elements
 */
 
 const long long MOD = 1e9+7;
@@ -35,10 +37,8 @@ int32_t main() {
 
     int n = s.size();
 
-    // nPr
     int64_t res = fact[n];
 
-    // adjust for repetitions
     for(size_t i = 0; i < 26; ++i) {
         if(repetition[i] > 1) {
             res *= binexp(fact[repetition[i]], MOD-2, MOD);

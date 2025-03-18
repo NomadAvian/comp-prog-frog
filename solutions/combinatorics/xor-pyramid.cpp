@@ -3,6 +3,9 @@ using namespace std;
 
 /*
     https://cses.fi/problemset/task/2419
+
+    the ith bit of the result will 1 iff,
+    the parity of the sum (nCj)*( bit[i] of the jth number ) over all j's is odd
 */
 
 const int32_t MAX = 1e6+7;
@@ -42,19 +45,11 @@ int32_t main() {
     vector<bool> bit(n);
     for(size_t b = 0; b < 30; ++b) {
         
+        bool on = false;
         for(size_t i = 0; i < n; ++i) {
             bit[i] = base[i]%2;
-            base[i]/=2;
-        }
-
-        /*
-            the ith bit of the result will 1 if,
-            the parity of the sum (nCj)*( bit[i] of the jth number ) over all j's is odd
-        */
-       
-        bool on = false;
-        for(int i = 0; i < n; i++) {
             if(bit[i]) on ^= (C[i] == 0);
+            base[i]/=2;
         }
 
         if(on) res += p;

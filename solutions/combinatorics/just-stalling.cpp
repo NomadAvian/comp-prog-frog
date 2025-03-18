@@ -3,6 +3,8 @@ using namespace std;
 
 /*
     https://usaco.org/index.php?page=viewproblem2&cpid=1085#
+
+    greedily determine how many spots a cow can occupy
 */
 
 int32_t main() {
@@ -21,7 +23,7 @@ int32_t main() {
     int32_t placed = 0;
 
     for(int i = n-1; i >= 0; --i) {
-        if(a[i] > b[i]) { // has no spot
+        if(a[i] > b[i]) {
             res = 0;
             break;
         }

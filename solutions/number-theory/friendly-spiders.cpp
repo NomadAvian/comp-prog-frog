@@ -3,6 +3,9 @@ using namespace std;
 
 /*
     https://codeforces.com/contest/1775/problem/D
+
+    use a bipartite graph to establish relations between the numbers and their prime divisors
+    a simple bfs will determine the answer
 */
 
 const int MAX = 3e5;
@@ -30,12 +33,8 @@ int32_t main() {
     cin >> n;
 
     vector<int> a(n);
-    int mx = 0;
 
-    for(auto& x : a) { 
-        cin >> x;
-        mx = max(mx, x);
-    }
+    for(auto& x : a) cin >> x;
 
     int s, t;
     cin >> s >> t;

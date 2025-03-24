@@ -6,6 +6,7 @@ A repo for competitive programming algorithms, templates and notes
 ### Number Theory
 
  - [ ] mod int template
+ - [ ] extended euclid algorithm
  - [ ] chinese remainder theorem
 
 ### Combinatorics

@@ -6,6 +6,34 @@ $$
     N = p_1^{a_1}p_2^{a_2}...p_n^{a_n}
 $$
 
+## Euler's Totient Function
+
+if $n \geq \log_2 m$,
+
+$$
+    x^n \equiv x^{[ \phi (m) + \{ n \mod \phi(m) \} ]} \mod m
+$$
+
+this is independent of the coprimality between $x$,$n$ and $m$.
+
+## Chinese Remainder Theorem
+
+Given the system of congruences
+
+$$
+    a \equiv a_i \mod m_i
+$$
+
+such that $\forall i \forall j \big[m_i \perp m_j\big]$,
+
+We can write
+
+$$
+    a \equiv \sum_{i=1}^n {a_iN_iM_i} \mod (\prod_{i=1}^n m_i)
+$$
+
+Where, $N_i$ is the modular inverse of $m_i$ with respect to $\prod_{j=1}^{i-1} M_j$
+
 # Combinatorics
 
 ## Combinations and Permutations

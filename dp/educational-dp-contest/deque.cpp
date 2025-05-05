@@ -6,7 +6,7 @@ int64_t a[3001];
 int64_t memo[3001][3001];
 bool vis[3001][3001];
 
-int64_t dp(int lb, int ub, int turn) {
+int64_t dp(int lb, int ub) {
     if(lb == ub)
         return a[lb];
     if(vis[lb][ub])
@@ -14,7 +14,7 @@ int64_t dp(int lb, int ub, int turn) {
     vis[lb][ub] = true;
 
     return memo[lb][ub] =
-        max(a[lb] - dp(lb+1,ub,0), a[ub] - dp(lb,ub-1,0));
+        max(a[lb] - dp(lb+1,ub), a[ub] - dp(lb,ub-1));
 }
 
 
@@ -27,7 +27,7 @@ int32_t main() {
 
     for(int i = 1; i <= n; ++i) cin >> a[i];
 
-    cout << dp(1, n, 1);
+    cout << dp(1, n);
 
     return 0;
 }

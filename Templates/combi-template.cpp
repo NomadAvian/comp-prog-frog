@@ -25,7 +25,7 @@ struct modint {
 };
 int modint::MOD = 1e9 + 7;
 
-struct COMBI
+struct COMBI 
 #define mint modint
 {
     int MAXN, mod; vector<modint> facts, finvs, invs, subfacts;
@@ -45,9 +45,9 @@ struct COMBI
     mint npr(int n, int r) { return n < r or r < 0 ? 0 : facts[n] * finvs[r]; }
     mint subfact(int n) { return subfacts[n]; }
 
-    mint lucas(int64_t n, int64_t r) {
-        if( n < r ) return 0;
-        if( n < mod ) return ncr(n,r);
-        return lucas(n / mod, r / mod) * lucas(n % mod, r % mod);
+    mint lucas(int64_t n, int64_t k) {
+        if( n < k ) return 0;
+        if( n < mod ) return ncr(n, k);
+        return lucas(n / mod, k / mod) * lucas(n % mod, k % mod);
     }
 };

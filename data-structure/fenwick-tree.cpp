@@ -1,16 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-/*
-    process range sum queries and updates efficiently
-    time complexity: O(logN)
-    space complexity: O(N)
-*/
 
 struct BIT {
-    vector<int64_t> bit;
-    int n;
-
+    vector<int64_t> bit; int n;
     BIT(vector<int64_t>const &a) { 
         n = a.size(); bit.assign(n, 0);
         for(size_t i=0; i<bit.size(); ++i) add(i, a[i]); 

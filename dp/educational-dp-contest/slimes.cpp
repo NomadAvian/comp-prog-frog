@@ -1,17 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+const int64_t INF = 1e18;
 
 int64_t a[405];
 int64_t dp[405][405];
-
 
 int64_t f(int l, int r) {
     if(l == r) 
         return 0;
     if(dp[l][r]) 
         return dp[l][r];
-    dp[l][r] = 1e18;
+    dp[l][r] = INF;
     for(int k = l; k < r; ++k) {
         dp[l][r] = min(dp[l][r], f(l, k) + f(k+1, r) + (a[r] - a[l-1]));
     }

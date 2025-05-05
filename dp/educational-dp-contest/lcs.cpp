@@ -20,7 +20,7 @@ int32_t main() {
         }
     }
 
-    string res;
+    string res = "";
 
     // backtrack
     int i = a, j = b;

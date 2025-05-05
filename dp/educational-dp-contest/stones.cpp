@@ -10,8 +10,6 @@ int32_t main() {
     vector<int> a(n);
     for(auto& x : a) cin >> x;
 
-    sort(a.begin(),a.end());
-
     vector<int> res(2*k + 2);
 
     for(int i = 0; i <= k; ++i) {

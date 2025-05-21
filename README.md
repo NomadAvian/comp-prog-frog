@@ -4,6 +4,9 @@ A repo for competitive programming algorithms, templates and notes
 
 ## To-do list
 
+ - [ ] centroid decomposition
+ - [ ] dijkstra with path generation
+
  - [ ] mod int template
  - [ ] extended euclid algorithm
  - [ ] chinese remainder theorem
@@ -12,10 +15,9 @@ A repo for competitive programming algorithms, templates and notes
  - [ ] combinatorial number series
  - [ ] expected values
 
- - [ ] template
  - [ ] convex hull
 
- - [ ] lazy propagation segment tree
+ - [x] lazy propagation segment tree
  - [ ] policy-based data structure
 
  - [ ] big int template

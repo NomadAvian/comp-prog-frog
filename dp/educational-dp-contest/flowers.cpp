@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 template<typename T> struct ST_PURQ
 #define LEFT (v<<1)
 #define RIGHT (v<<1|1)
@@ -5,7 +8,6 @@ template<typename T> struct ST_PURQ
 {
     int n; 
     vector<T> t;
-
 
     // ---
     T id = 0;
@@ -16,7 +18,7 @@ template<typename T> struct ST_PURQ
         return val;
     }
     T mergeUpdate(T a, T b) {
-        return a + b;
+        return max(a, b);
     }
     T mergeQuery(T a, T b) {
         return mergeUpdate(a,b);
@@ -42,3 +44,26 @@ template<typename T> struct ST_PURQ
                            query(RIGHT, max(l, MID+1), r, MID+1, tr)); 
     } T query(int l, int r) { return query(1,l,r,0,n-1); }
 };
+
+int32_t main() {
+
+    int n;
+    cin >> n;
+
+    int h[n], a[n];
+    for(int &height : h) cin >> height;
+    for(int &beauty : a) cin >> beauty;
+
+    vector<int64_t> dp(n+1);
+
+    ST_PURQ<int64_t> st(dp);
+
+    for(int i = 0; i < n; ++i) {
+        dp[h[i]] = st.query(0, h[i]-1) + a[i];
+        st.update(h[i], dp[h[i]]);
+    }
+
+    cout << st.query(0,n) << endl;
+
+    return 0;
+}

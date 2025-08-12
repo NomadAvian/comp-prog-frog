@@ -31,8 +31,6 @@ void scc(vector<vector<int>>& components, vector<vector<int>>& adj_cond) {
     vis.assign(n, false);
     reverse(order.begin(), order.end());
 
-    // vector<int> roots(n, 0);
-
     for(auto v : order) {
         if(!vis[v]) {
             vector<int> component;

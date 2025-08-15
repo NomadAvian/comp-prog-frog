@@ -25,7 +25,7 @@ vector<int> toposort(int n) {
     }
     vector<int> order;
     while(!Q.empty()) {
-        int u = Q.top();
+        int u = Q.front();
         Q.pop();
 
         order.push_back(u);
@@ -39,7 +39,7 @@ vector<int> toposort(int n) {
     }
     if(order.size() < n) return vector<int>();
     reverse(order.begin(), order.end());
-    else return order;
+    return order;
 }
 
 void dfs(int u) {

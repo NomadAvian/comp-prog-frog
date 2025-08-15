@@ -1,6 +1,3 @@
-*.exe
-lab/
 output/
-notes/
 .vscode/
-blogs/
+.cph/

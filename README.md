@@ -6,6 +6,7 @@ A repo for competitive programming algorithms, templates and notes
 
  - [ ] centroid decomposition
  - [ ] dijkstra with path generation
+ - [x] sparse tables 
 
  - [ ] mod int template
  - [ ] extended euclid algorithm
@@ -17,7 +18,7 @@ A repo for competitive programming algorithms, templates and notes
 
  - [ ] convex hull
 
- - [x] lazy propagation segment tree
  - [ ] policy-based data structure
+ - [x] lazy-propagation segment tree
 
  - [ ] big int template
